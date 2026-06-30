@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* ===========================
+        CAKE PAGE
+=========================== */
+.cake-box{
+    position:relative;
+    width:420px;
+    margin:auto;
+}
+
+#cake{
+    width:100%;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));
+}
+
+.candles{
+    position:absolute;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:55px;
+}
+
+.candle{
+    width:8px;
+    height:45px;
+    background:#fff;
+    border-radius:5px;
+    position:relative;
+}
+
+.flame{
+    width:12px;
+    height:18px;
+    background:gold;
+    border-radius:50%;
+    position:absolute;
+    top:-16px;
+    left:-2px;
+    animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(.8);
+}
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="cake-page">
+
+<div class="cake-box">
+
+    <img src="images/cake.png" id="cake">
+
+    <div class="candles">
+
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+
+    </div>
+
+</div>
+
+<button id="blowBtn">💨 Blow The Candles</button>
+
+<script src="js/cake.js"></script>
+<script>
+    const blowBtn=document.getElementById("blowBtn");
+
+blowBtn.onclick=()=>{
+
+document.querySelectorAll(".flame").forEach(f=>{
+
+f.style.display="none";
+
+});
+
+blowBtn.innerHTML="🎉 Happy Birthday ❤️";
+
+setTimeout(()=>{
+
+window.location.href="final.html";
+
+},3000);
+
+}
+</script>
+
+</body>
+</html>
